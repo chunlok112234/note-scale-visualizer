@@ -54,3 +54,49 @@ npm run format:check
 ```
 
 After relocating routes, run the build before typechecking to regenerate Next.js route types. Use `npm run format` to keep source formatting consistent.
+
+## Automated browser tests
+
+```sh
+npm ci
+npx playwright install chromium firefox webkit
+npm run test:e2e
+```
+
+Playwright builds the production app and starts its own server on port **3100**.
+Keep that port free. Test builds use `.next-e2e` so they do not overwrite a
+running development server’s `.next` output. Tests use fresh browser contexts and local audio fixtures;
+no sample downloads or external services are needed during the test run. Browser
+installation and dependency installation require internet access.
+
+```sh
+npm run test:e2e -- --project=chromium # quick single-browser run
+npm run test:e2e:ui                    # interactive test runner
+npm run test:e2e:headed                # visible browser windows
+npm run test:e2e:report                # view the last HTML report
+```
+
+The 46 test cases run on Chromium, Firefox, WebKit, Pixel 7 emulation, and iPhone 13
+emulation (230 executions total). Mobile projects emulate browser/device settings; they do not replace
+physical-device testing.
+
+- `tests/e2e/explorer.spec.ts`: initial state, all 14 scales in all 12 keys,
+  expected notes and polygon vertices, intervals, keyboard and pointer
+  transposition, sharp/flat notation, duration bounds, and reset preferences.
+- `tests/e2e/interface.spec.ts`: saved and system themes, both help entry points
+  and all dismissal methods, and layouts from 320 to 1280 pixels wide.
+- `tests/e2e/playback.spec.ts`: real Tone.js sine playback and sequential note
+  highlights, all 20 sampled instruments, stop/change cancellation, pending-load
+  cancellation, failed downloads, and successful retry.
+- `tests/e2e/fixtures.ts`: isolated page setup, uncaught browser error checks, and
+  generated PCM WAV responses for sample requests.
+
+Audio tests exercise real Web Audio scheduling and decoding with a short test
+tone substituted for remote recordings. They verify UI state and timing, not
+speaker output, musical timbre, or upstream sample availability. Scale
+expectations are maintained independently of production scale definitions.
+
+GitHub Actions runs unit and browser tests plus typechecking on pushes and pull
+requests. Failed tests retain screenshots, videos, and traces; the HTML report
+and results are uploaded for 14 days. CI retries failures twice and uses two
+workers; local runs do not retry. Generated reports are excluded from Git.
