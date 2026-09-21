@@ -73,11 +73,11 @@ export function ScaleExplorer() {
   return (
     <div className={`app ${dark ? "dark" : "light"}`}>
       <header className="header">
-        <a href="/" className="brand" aria-label="Scale Shape home">
+        <a href="/" className="brand" aria-label="Scale Visualizer home">
           <span className="brand-mark">
             <AudioLines size={23} />
           </span>
-          scale<span className="brand-light">shape</span>
+          scale<span className="brand-light">visualizer</span>
           <span className="brand-dot">.</span>
         </a>
         <div className="header-right">
@@ -88,7 +88,7 @@ export function ScaleExplorer() {
           <button
             className="icon-button"
             onClick={() => setHelp(true)}
-            aria-label="How to use Scale Shape"
+            aria-label="How to use Scale Visualizer"
           >
             <CircleHelp size={20} />
           </button>

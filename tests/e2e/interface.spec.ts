@@ -28,7 +28,7 @@ for (const method of ["close button", "escape", "explore button", "backdrop"]) {
     app,
   }) => {
     for (const entry of [
-      "How to use Scale Shape",
+      "How to use Scale Visualizer",
       "Learn about transposition",
     ]) {
       await app.getByRole("button", { name: entry }).click();
@@ -75,7 +75,9 @@ for (const width of [320, 375, 768, 1280]) {
     }
     await app.getByLabel("Key signature").selectOption("7");
     await expect(app.getByRole("heading", { level: 2 })).toHaveText("G major");
-    await app.getByRole("button", { name: "How to use Scale Shape" }).click();
+    await app
+      .getByRole("button", { name: "How to use Scale Visualizer" })
+      .click();
     await expect(app.getByRole("dialog")).toBeVisible();
     await app.getByRole("button", { name: "Let’s explore" }).click();
     await expect(app.getByRole("dialog")).toHaveCount(0);

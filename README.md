@@ -1,4 +1,4 @@
-# Scale Shape
+# Scale Visualizer
 
 An interactive Next.js scale visualizer with light/dark themes and Tone.js playback.
 
@@ -68,6 +68,12 @@ Keep that port free. Test builds use `.next-e2e` so they do not overwrite a
 running development server’s `.next` output. Tests use fresh browser contexts and local audio fixtures;
 no sample downloads or external services are needed during the test run. Browser
 installation and dependency installation require internet access.
+
+Headless Linux runners also need a working audio output for Firefox's Web Audio
+clock. The GitHub workflow starts PulseAudio with a virtual null sink before
+running the tests. Without an audio backend, `Tone.start()` can remain pending:
+playback stays at “Loading instrument…” even for Sine wave, and sample requests
+never start. Local WAV fixtures replace downloads but still use real Web Audio.
 
 ```sh
 npm run test:e2e -- --project=chromium # quick single-browser run

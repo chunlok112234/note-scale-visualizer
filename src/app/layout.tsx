@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 export const metadata: Metadata = {
-  title: "Scale Shape — See the sound",
+  title: "Scale Visualizer — See the sound",
   description:
     "Explore musical scales through geometry. Rotate, discover, and listen.",
 };

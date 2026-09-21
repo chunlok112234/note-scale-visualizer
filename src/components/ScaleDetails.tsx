@@ -63,12 +63,12 @@ export function ScaleDetails({
               className={`note-chip ${i === 0 ? "tonic-chip" : ""} ${active !== null && active % 12 === n ? "active-chip" : ""}`}
             >
               {names[n]}
-              {i === 0 && <span className="chip-dot" />}
             </span>
           ))}
         </div>
         <div className="legend">
-          <span /> Tonic / home note
+          <span />
+          The note highlighted is the tonic / home tone.
         </div>
       </div>
       <div className="detail-section">

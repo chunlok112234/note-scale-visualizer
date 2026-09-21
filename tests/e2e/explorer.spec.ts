@@ -6,8 +6,8 @@ const cases: [string, number[], string][] = [
   ["Major", [0, 2, 4, 5, 7, 9, 11], "W W H W W W H"],
   ["Natural minor", [0, 2, 3, 5, 7, 8, 10], "W H W W H W W"],
   ["Harmonic minor", [0, 2, 3, 5, 7, 8, 11], "W H W W H 3H H"],
-  ["Minor pentatonic", [0, 3, 5, 7, 10], "3H W W 3H W"],
   ["Major pentatonic", [0, 2, 4, 7, 9], "W W 3H W 3H"],
+  ["Minor pentatonic", [0, 3, 5, 7, 10], "3H W W 3H W"],
   ["Dorian", [0, 2, 3, 5, 7, 9, 10], "W H W W W H W"],
   ["Phrygian", [0, 1, 3, 5, 7, 8, 10], "H W W W H W W"],
   ["Lydian", [0, 2, 4, 6, 7, 9, 11], "W W W H W W H"],
@@ -24,7 +24,7 @@ const cases: [string, number[], string][] = [
 ];
 
 test("initial page and control defaults", async ({ app }) => {
-  await expect(app).toHaveTitle(/Scale Shape/i);
+  await expect(app).toHaveTitle(/Scale Visualizer/i);
   await expect(app.getByRole("heading", { level: 1 })).toHaveText(
     "See the shape of sound.",
   );

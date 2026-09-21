@@ -48,19 +48,19 @@ export const scales = {
       "A raised seventh pulls strongly toward the tonic. The wide step between the sixth and seventh creates its distinctive, dramatic sound.",
     degrees: ["1", "2", "♭3", "4", "5", "♭6", "7"],
   },
-  "Minor pentatonic": {
-    intervals: [0, 3, 5, 7, 10],
-    mood: "Soulful, grounded & melodic",
-    description:
-      "A five-note staple of blues and rock. Its spacious intervals make a natural starting point for expressive melodies and improvisation.",
-    degrees: ["1", "♭3", "4", "5", "♭7"],
-  },
   "Major pentatonic": {
     intervals: [0, 2, 4, 7, 9],
     mood: "Simple, warm & free",
     description:
       "Five notes with room to breathe. Removing the half steps creates an open, melodic scale heard in folk, pop, and music around the world.",
     degrees: ["1", "2", "3", "5", "6"],
+  },
+  "Minor pentatonic": {
+    intervals: [0, 3, 5, 7, 10],
+    mood: "Soulful, grounded & melodic",
+    description:
+      "A five-note staple of blues and rock. Its spacious intervals make a natural starting point for expressive melodies and improvisation.",
+    degrees: ["1", "♭3", "4", "5", "♭7"],
   },
   Dorian: {
     intervals: [0, 2, 3, 5, 7, 9, 10],
